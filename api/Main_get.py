@@ -11,6 +11,8 @@ app = FastAPI(title="Mini API", version="1.0.0")
 def hello():
     return {"message": "Bienvenue sur notre API !"}
 
+
+
 @app.get("/status")
 def status():
     return {"server_time_utc": datetime.now(timezone.utc).isoformat()}
