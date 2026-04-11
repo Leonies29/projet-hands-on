@@ -10,3 +10,5 @@ app = FastAPI(title="Mini API", version="1.0.0")
 @app.get("/hello")
 def hello():
     return {"message": "Bienvenue sur notre API !"}
+
+
