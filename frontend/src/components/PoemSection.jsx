@@ -11,7 +11,6 @@ export function PoemSection() {
     setLoading(true)
     try {
       const res = await getPoem()
-      // Selon l’API : string directe ou { poem: "..." }
       setPoem(typeof res === 'string' ? res : res.poem ?? JSON.stringify(res))
     } catch (e) {
       setError(e.message)

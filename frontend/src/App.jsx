@@ -7,8 +7,7 @@ export default function App() {
     <>
       {USE_MOCK && (
         <p className="mock-banner" role="status">
-          Mode mock : aucun appel réseau vers l’API — à désactiver (
-          <code>VITE_USE_MOCK=false</code>) quand le backend est prêt.
+          Données simulées
         </p>
       )}
       <main>
