@@ -1,12 +1,3 @@
-/**
- * Données fictives + même interface que l’API réelle.
- *
- * Contrat à aligner avec l’équipe backend (à adapter si votre API renvoie autre chose) :
- * - GET  /data  → JSON { rows: string[] }  (ou plus tard : texte CSV/JSON brut comme le vrai fichier GCS)
- * - POST /data  → body JSON { line: string }
- * - GET  /poem → JSON { poem: string }  ou texte brut
- */
-
 let rows = ['Ligne exemple 1', 'Ligne exemple 2']
 
 function wait(ms = 280) {
