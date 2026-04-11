@@ -22,9 +22,6 @@ export function getData() {
   return fetch(url('/data')).then(handle)
 }
 
-/**
- * @param {object} body — objet sérialisé en JSON (doit correspondre au contrat de ton API)
- */
 export function postData(body) {
   if (USE_MOCK) return mock.mockPostData(body)
   return fetch(url('/data'), {

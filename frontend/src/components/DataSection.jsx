@@ -23,7 +23,6 @@ export function DataSection() {
     setError(null)
     setLoading(true)
     try {
-      // Exemple : si l’API attend { line: "..." } — adapte au contrat réel de POST /data
       await postData({ line: newLine })
       setNewLine('')
       await load()
