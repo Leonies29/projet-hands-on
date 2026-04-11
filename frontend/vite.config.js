@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Vite expose uniquement les variables préfixées VITE_ au code client
 export default defineConfig({
   plugins: [react()],
   server: {
