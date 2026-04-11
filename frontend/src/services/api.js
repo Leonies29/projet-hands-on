@@ -1,4 +1,5 @@
-import { API_BASE_URL } from '../config.js'
+import { API_BASE_URL, USE_MOCK } from '../config.js'
+import * as mock from './mockApi.js'
 
 function url(path) {
   const p = path.startsWith('/') ? path : `/${path}`
@@ -17,6 +18,7 @@ async function handle(res) {
 }
 
 export function getData() {
+  if (USE_MOCK) return mock.mockGetData()
   return fetch(url('/data')).then(handle)
 }
 
@@ -24,6 +26,7 @@ export function getData() {
  * @param {object} body — objet sérialisé en JSON (doit correspondre au contrat de ton API)
  */
 export function postData(body) {
+  if (USE_MOCK) return mock.mockPostData(body)
   return fetch(url('/data'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -32,5 +35,6 @@ export function postData(body) {
 }
 
 export function getPoem() {
+  if (USE_MOCK) return mock.mockGetPoem()
   return fetch(url('/poem')).then(handle)
 }
