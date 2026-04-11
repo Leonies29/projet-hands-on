@@ -14,5 +14,3 @@ def hello():
 @app.get("/status")
 def status():
     return {"server_time_utc": datetime.now(timezone.utc).isoformat()}
-
-
