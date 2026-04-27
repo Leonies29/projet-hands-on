@@ -25,3 +25,9 @@ def get_poem():
         except Exception as e:
             raise HTTPException(status_code=502, detail=f"Vertex error: {e}") from e
 
+@app.get("/data")
+def get_data():
+    data = _load_store()
+    if "rows" not in data:
+        data = {"rows": []}
+    return data
