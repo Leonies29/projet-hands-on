@@ -31,3 +31,16 @@ def get_data():
     if "rows" not in data:
         data = {"rows": []}
     return data
+
+@app.post("/data")
+def post_data(body: LineBody):
+    text = (body.line or "").strip()
+    if not text:
+        raise HTTPException(status_code=400, detail='Champ "line" requis et non vide.')
+ 
+    data = _load_store()
+    rows = list(data.get("rows", []))
+    rows.append(text)
+    out = {"rows": rows}
+    _save_store(out)
+    return {"ok": True, "rows": rows}
