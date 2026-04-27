@@ -14,8 +14,7 @@ def hello():
 @app.get("/status")
 def status():
     return {"server_time_utc": datetime.now(timezone.utc).isoformat()}
-
-
+  
 @app.get("/poem")
 def get_poem():
     if os.getenv("GCP_PROJECT", "").strip():
@@ -25,3 +24,4 @@ def get_poem():
             raise
         except Exception as e:
             raise HTTPException(status_code=502, detail=f"Vertex error: {e}") from e
+
