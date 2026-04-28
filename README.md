@@ -10,12 +10,15 @@ pip install -r api/requirements.txt
 - Lancement : 
 
 export BUCKET_NAME="votre-bucket"
+
 export FILE_PATH="data.json"
+
 uvicorn main:app --reload
 
 # 3. Build et Run avec Docker :
 
 docker build -t mini-api-image ./api
+
 docker run -p 8080:8080 -e BUCKET_NAME="votre-bucket" mini-api-image
 
 # 4. Déploiement Cloud :
