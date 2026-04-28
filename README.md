@@ -24,6 +24,10 @@ http://127.0.0.1:8000/docs#/default/post_data_data_post
 
 docker build -t mini-api .
 
+docker build -t leonies29/hands-on:latest .
+
+docker push leonies29/hands-on:latest
+
 # 4. Déploiement Cloud :
 
 - Build de l'image via Cloud Build
