@@ -35,8 +35,7 @@ def get_data():
         return data  # gcs.py retourne déjà {"rows": [...]}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
- 
- 
+
 @app.post("/data")
 def post_data(body: LineBody):
     text = (body.line or "").strip()
@@ -49,4 +48,4 @@ def post_data(body: LineBody):
         return {"ok": True, "rows": data["rows"]}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
- 
+
