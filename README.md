@@ -22,9 +22,17 @@ http://127.0.0.1:8000/docs#/default/post_data_data_post
 
 # 3. Build et Run avec Docker :
 
-docker build -t mini-api .
+- docker build -t mini-api-image .
 
-docker build -t leonies29/hands-on:latest .
+docker run -p 8080:8080 mini-api-image
+
+docker tag mini-api-image emmandlc/mini-api-esme:latest
+
+docker push emmandlc/mini-api-esme:latest
+
+Lancer : http://localhost:8080/docs#/default
+
+- docker build -t leonies29/hands-on:latest .
 
 docker push leonies29/hands-on:latest
 
