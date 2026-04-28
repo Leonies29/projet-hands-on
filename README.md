@@ -4,22 +4,25 @@ Ce projet consiste en le développement et le déploiement d'une API Python (Fas
 
 # 2. Exécution en local :
 
-- Installation des dépendances : 
+- python -m venv venv
 
-pip install -r api/requirements.txt
-- Lancement : 
+venv\Scripts\activate
 
-export BUCKET_NAME="votre-bucket"
+- python -m pip install --upgrade pip
 
-export FILE_PATH="data.json"
+pip install fastapi uvicorn
 
-uvicorn main:app --reload
+- cd api
+
+python -m uvicorn app.main:app --reload
+
+- Lancer : 
+
+http://127.0.0.1:8000/docs#/default/post_data_data_post
 
 # 3. Build et Run avec Docker :
 
-docker build -t mini-api-image ./api
-
-docker run -p 8080:8080 -e BUCKET_NAME="votre-bucket" mini-api-image
+docker build -t mini-api .
 
 # 4. Déploiement Cloud :
 
