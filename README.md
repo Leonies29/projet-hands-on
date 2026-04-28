@@ -4,9 +4,11 @@ Ce projet consiste en le développement et le déploiement d'une API Python (Fas
 
 # 2. Exécution en local :
 
-- Installation des dépendances
+- Installation des dépendances : 
+
 pip install -r api/requirements.txt
-- Lancement
+- Lancement : 
+
 export BUCKET_NAME="votre-bucket"
 export FILE_PATH="data.json"
 uvicorn main:app --reload
