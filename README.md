@@ -6,15 +6,15 @@ Ce projet consiste en le développement et le déploiement d'une API Python (Fas
 
 - python -m venv venv
 
->> venv\Scripts\activate
+venv\Scripts\activate
 
 - python -m pip install --upgrade pip
 
->> pip install fastapi uvicorn
+pip install fastapi uvicorn
 
 - cd api
 
->> python -m uvicorn app.main:app --reload
+python -m uvicorn app.main:app --reload
 
 - Lancer : 
 
