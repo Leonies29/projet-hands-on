@@ -4,6 +4,9 @@ from datetime import datetime
  
 from app.gcs import read_data, write_data
 from app.vertex import generate_poem
+
+class LineBody(BaseModel):
+    line: str
  
 app = FastAPI(title="Mini API", version="1.0.0")
 
