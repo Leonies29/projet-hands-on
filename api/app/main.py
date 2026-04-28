@@ -30,20 +30,22 @@ def get_poem():
 
 @app.get("/data")
 def get_data():
-    data = _load_store()
-    if "rows" not in data:
-        data = {"rows": []}
-    return data
+    try:
+        data = read_data()
+        return data  # gcs.py retourne déjà {"rows": [...]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.post("/data")
 def post_data(body: LineBody):
     text = (body.line or "").strip()
     if not text:
         raise HTTPException(status_code=400, detail='Champ "line" requis et non vide.')
- 
-    data = _load_store()
-    rows = list(data.get("rows", []))
-    rows.append(text)
-    out = {"rows": rows}
-    _save_store(out)
-    return {"ok": True, "rows": rows}
+    try:
+        data = read_data()
+        data["rows"].append(text)
+        write_data(data)
+        return {"ok": True, "rows": data["rows"]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
