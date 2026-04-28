@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime, timezone
  
 from app.gcs import read_data, write_data
 from app.vertex import generate_poem
