@@ -7,6 +7,9 @@ from app.vertex import generate_poem
  
 app = FastAPI(title="Mini API", version="1.0.0")
 
+class LineBody(BaseModel):
+    line: str
+
 @app.get("/hello")
 def hello():
     return {"message": "Bienvenue sur notre API !"}
