@@ -38,5 +38,6 @@ docker push leonies29/hands-on:latest
 
 # 4. Déploiement Cloud :
 
-- Build de l'image via Cloud Build
+- Build et push de l'image via Cloud Build
 - Déploiement sur Cloud Run avec les variables d'environnement configurées.
+(Nous avons juste un problème avec /poem car nous n'arrivons pas à avoir accès à Vertex AI donc il renvoie un poème par défaut.)

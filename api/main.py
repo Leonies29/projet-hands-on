@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime, timezone
+import os
  
 from app.gcs import read_data, write_data
 from app.vertex import generate_poem
@@ -21,17 +22,14 @@ def status():
   
 @app.get("/poem")
 def get_poem():
-    if os.getenv("GCP_PROJECT", "").strip():
-        try:
-            return {"poem": _poem_vertex()}
-        except HTTPException:
-            raise
-        except Exception as e:
-            raise HTTPException(status_code=502, detail=f"Vertex error: {e}") from e
+    try:
+        return {"poem": generate_poem()}
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Vertex error: {e}")
 
 @app.get("/data")
 def get_data():
-    data = _load_store()
+    data = read_data()
     if "rows" not in data:
         data = {"rows": []}
     return data
@@ -42,9 +40,9 @@ def post_data(body: LineBody):
     if not text:
         raise HTTPException(status_code=400, detail='Champ "line" requis et non vide.')
  
-    data = _load_store()
+    data = read_data()
     rows = list(data.get("rows", []))
     rows.append(text)
     out = {"rows": rows}
-    _save_store(out)
+    write_data(out)
     return {"ok": True, "rows": rows}
