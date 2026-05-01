@@ -48,7 +48,7 @@ https://mini-api-esme-366915979462.europe-west1.run.app/docs
 
 # Lien Docker Hub : 
 
-https://hub.docker.com/repository/docker/emmandlc/mini-api-esme
+https://hub.docker.com/r/emmandlc/mini-api-esme
 
 # Lien GitHub : 
 
