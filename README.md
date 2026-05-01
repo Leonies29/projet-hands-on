@@ -41,3 +41,15 @@ docker push leonies29/hands-on:latest
 - Build et push de l'image via Cloud Build
 - Déploiement sur Cloud Run avec les variables d'environnement configurées.
 (Nous avons juste un problème avec /poem car nous n'arrivons pas à avoir accès à Vertex AI donc il renvoie un poème par défaut.)
+
+# Lien Cloud Run :
+
+https://mini-api-esme-366915979462.europe-west1.run.app/docs
+
+# Lien Docker Hub : 
+
+https://hub.docker.com/repository/docker/emmandlc/mini-api-esme
+
+# Lien GitHub : 
+
+https://github.com/Leonies29/projet-hands-on
